@@ -26,11 +26,8 @@ public class EmployeeService implements IEmployeeService {
    @Autowired
    EmployeeDao employeeDao;
 
-
-
     private Employee lineToEmployee(String line)
     {
-
         String[] fields = line.split(",");
         Long id = Long.parseLong(fields[0]);
         String employeeName = fields[1];
@@ -41,7 +38,6 @@ public class EmployeeService implements IEmployeeService {
 
         return employee;    
     }
-
 
     @Override
     public void saveEmployees(MultipartFile file) throws IOException {
@@ -54,12 +50,9 @@ public class EmployeeService implements IEmployeeService {
         while ((line = reader.readLine()) != null) {
             Employee employee = lineToEmployee(line);
             employeeDao.save(employee);
-
         }
 
         reader.close();
-
-        System.out.println("Inserted employees succesfuly");
     }
 
     private  Map<String, Double> calculateAverageSalaryByJobTitle(List<Employee> employees) {
@@ -68,7 +61,6 @@ public class EmployeeService implements IEmployeeService {
                         Collectors.averagingDouble(Employee::getSalary)));
     
 }
-
 
 
     @Override

@@ -30,7 +30,7 @@ public class EmployeeController {
     public ResponseEntity<Object> uploadEmloyees(@RequestParam("file") MultipartFile file) throws IOException {
         employeeService.saveEmployees(file);
 
-       return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping
